@@ -6,16 +6,17 @@ phases:
       - echo Login in Amazon ECR ....
       - echo $DOCKERHUB_PASS | docker login --username $DOCKERHUB_USER --pass-stdin
       - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $ECR_DIR
+      
   
   build:
     commands:
-      - echo Building started
+      - Build completed on `date`
       - echo building docker image
       - docker build -t $ECR_DIR:latest .
       - docker tag $ECR_DIR:latest:latest $ECR_DIR:latest:latest
     
   post_building:
     commands:
-      - echo building completed
+      - echo building completed on `date`
       - echo pushing the docker image
-      -docker push $ECR_DIR:latest
+      - docker push $ECR_DIR:latest
