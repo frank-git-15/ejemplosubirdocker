@@ -15,7 +15,7 @@ phases:
       - docker build -t $ECR_DIR:latest .
       - docker tag $ECR_DIR:latest:latest $ECR_DIR:latest:latest
     
-  post_building:
+  post_build:
     commands:
       - echo building completed on `date`
       - echo pushing the docker image
