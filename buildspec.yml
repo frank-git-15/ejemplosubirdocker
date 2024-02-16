@@ -10,7 +10,7 @@ phases:
   
   build:
     commands:
-      - Build completed on `date`
+      - echo Build completed on `date`
       - echo building docker image
       - docker build -t $ECR_DIR:latest .
       - docker tag $ECR_DIR:latest:latest $ECR_DIR:latest:latest
