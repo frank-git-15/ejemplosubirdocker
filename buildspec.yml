@@ -5,7 +5,6 @@ phases:
     commands:
       - echo Login in Amazon ECR ....
       - echo $DOCKERHUB_PASS | docker login --username $DOCKERHUB_USER --password-stdin
-      --password-stdin
       - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $ECR_DIR
       
   
